@@ -1,8 +1,15 @@
-nginx=/etc/rc.d/nginx
+nginx=/usr/sbin/nginx
+wd=/home/azer/www/nginx
 stats_hostname=stats.kodfabrik.com
 
 reload:
-	sudo $(nginx) reload
+	sudo kill -HUP `cat $(wd)/pid`
+
+start:
+	sudo $(nginx) -c $(wd)/sites.conf
+
+stop:
+	sudo kill -QUIT `cat $(wd)/pid`
 
 new:
 	mkdir enabled -p
