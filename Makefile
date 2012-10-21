@@ -1,6 +1,10 @@
 nginx=/usr/sbin/nginx
 wd=/home/azer/www/nginx
 stats_hostname=stats.kodfabrik.com
+hostname="nonexisting"
+
+all:
+	@echo "Available Commands: start, stop, reload, new, rm, new-webalizer, update-stats"
 
 reload:
 	sudo kill -HUP `cat $(wd)/pid`
@@ -12,16 +16,11 @@ stop:
 	sudo kill -QUIT `cat $(wd)/pid`
 
 new:
-	mkdir enabled -p
-	mkdir sites/$(hostname) -p
+	./new.sh $(hostname) $(git)
 
-	mkdir sites/$(hostname)/logs
-	mkdir sites/$(hostname)/public
-
-	sed "s/HOSTNAME/$(hostname)/g" draft/nginx.conf > sites/$(hostname)/nginx.conf
-	sed "s/HOSTNAME/$(hostname)/g" draft/index.html > sites/$(hostname)/public/index.html
-
-	ln sites/$(hostname)/nginx.conf enabled/$(hostname).conf
+rm:
+	rm -rf sites/$(hostname)
+	rm enabled/$(hostname).conf
 	
 new-webalizer:
 	mkdir sites/$(stats_hostname)/public/$(hostname)
