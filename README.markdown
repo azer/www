@@ -48,6 +48,10 @@ Creates a new site.
 $ make new hostname=foobar.com git=git@github.com:azer/foobar.com
 ```
 
+## make rm
+
+Removes a site.
+
 ## make start
 
 Starts a new nginx process loading local configurations.
