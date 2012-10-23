@@ -1,4 +1,5 @@
-This is the repository of my tiny nginx&deployment manager.
+This is the repository of my tiny nginx and deployment manager. It's based on a Makefile and some git hooks, has no 
+other dependecy unlike the other tools. I use it for deploying static websites built by Jekyll, and some NodeJS apps.
 
 # Usage
 
@@ -47,6 +48,10 @@ Creates a new site.
 ```bash
 $ make new site=foobar.com git=git@github.com:azer/foobar.com
 ```
+
+## make rm
+
+Removes a site.
 
 ## make start
 
