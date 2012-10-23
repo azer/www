@@ -6,13 +6,13 @@ Below command creates a new website, clones given git repo and runs
 `make setup` command for once.
 
 ```bash
-$ make new hostname=foobar.com git=git@github.com:azer/foobar.com
+$ make new site=foobar.com git=git@github.com:azer/foobar.com
 ```
 
 **Deployment:**
 
 Once you create the new site, a new remote of given repository is created
-under `sites/$hostname/git` path and `make deploy` command will be run after
+under `sites/$site/git` path and `make deploy` command will be run after
 every update.
 
 ```
@@ -23,7 +23,7 @@ $ git push production master
 Use `pass` parameter to set a proxy pass:
 
 ```bash
-make new hostname=api.foobar.com git=git@github.com:azer/api.foobar.com pass=/:http://127.0.0.1:8888,/v2:http://127.0.0.1:8080
+make new site=api.foobar.com git=git@github.com:azer/api.foobar.com pass=/:http://127.0.0.1:8888,/v2:http://127.0.0.1:8080
 ```
 
 The command above will output this config:
@@ -45,7 +45,7 @@ location /v2 {
 Creates a new site.
 
 ```bash
-$ make new hostname=foobar.com git=git@github.com:azer/foobar.com
+$ make new site=foobar.com git=git@github.com:azer/foobar.com
 ```
 
 ## make start
